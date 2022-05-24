@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+   ">
+    <bean id="class" class="com.Jas0n.entity.myClass">
+        <property name="id" value="1"></property>
+        <property name="name" value="一班"></property>
+        <property name="student_list">
+            <list>
+                <ref bean="student_with_arg"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="student_with_arg" class="com.Jas0n.entity.Student">
+        <constructor-arg name="id" value = "3"></constructor-arg>
+        <constructor-arg name="name" value ="JJas00nn"></constructor-arg>
+        <constructor-arg name="age" value="188"></constructor-arg>
+    </bean>
+
+</beans>
