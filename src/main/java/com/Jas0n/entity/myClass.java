@@ -1,13 +1,10 @@
 package com.Jas0n.entity;
 
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
-public class Student {
+public class myClass {
     private Integer id;
     private String name;
-    private Integer age;
+    private Student[] student_list;
 }

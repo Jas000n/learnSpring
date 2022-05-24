@@ -52,3 +52,51 @@ Student student = (Student) applicationContext.getBean(Student.class);//通过�
 Student student = (Student) applicationContext.getBean("student");//通过id取值
 System.out.println(student);
 ```
+
+* 有参构造
+
+```xml
+<bean id="student_with_arg" class="com.Jas0n.entity.Student">
+    <constructor-arg name="id" value = "3"></constructor-arg>
+    <constructor-arg name="name" value ="JJas00nn"></constructor-arg>
+    <constructor-arg name="age" value="188"></constructor-arg>
+</bean>
+```
+
+如果包含特殊字符：
+
+```xml
+<constructor-arg name ="Classes">
+<value><![CDATA[\\\\\\\\\]]></value>  
+<constructor-arg>
+```
+
+##### 1.1.2 IoC DI
+
+DI指bean之间的依赖注入
+
+```xml
+<constructor-arg name ="Classes" ref="classes"><constructor-arg>
+```
+
+以这种方式传引用。
+
+如需要注入到数据结构里，如string[]，可以这样写：
+
+```xml
+<list>
+	<ref bean="student1"></ref>
+  <ref bean="student2"></ref>
+</list>
+```
+
+#### 1.2 Spring中的bean
+
+bean是根据scope来生成的，表示bean的作用域，scope有4种类型：
+
+* singleton：单例
+* prototype：原型模式，表示通过ioc容器获得的对象是不同的
+* request：表示在一次http请求内有效
+* session：表示在一个用户会话内有效
+
+后两种适用于web项目
